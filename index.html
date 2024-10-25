@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+    <title>KAIA</title>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-cont">
+            <header class="container">
+                <div class="page-header">
+                    <div class="logo">
+                        <a href="#"><img src="./imgs/logo_K.png" alt=""></a>
+                    </div>
+                    <input type="checkbox" id="click">
+        
+                    <label for="click" class="mainicon">
+                        <div class="menu">
+                            <i class='bx bx-menu'></i>
+                        </div>
+                    </label>
+                    <ul>
+                        <li><a href="#"  class="active" style="--navAni:1">HOME</a></li>
+                        <li><a href="#" style="--navAni:2">SHOP</a></li>
+                        <li><a href="#" style="--navAni:3">COLLECTION</a></li>
+                        <li><a href="#" style="--navAni:4">WISH-LIST</a></li>
+                        <li><a href="#" style="--navAni:5">BAG</a></li>
+                    </ul>
+                    <label class="mode">
+                        <input type="checkbox" id="darkModeToggle">
+                        <i class='bx bxs-moon'></i>
+                    </label>
+                </div>
+            </header>
+        
+            <div class="container">
+                <div class="main">
+                    <div class="detail">
+                        <h3>WELCOME</h3>
+                        <h1><span style="color:#52489C;"></span> KAIA</h1>
+                        <p>STYLING SINCE 1913</p>
+                        <div class="social">
+                            <a href="#" style="--socialAni:1"><i class='bx bxl-linkedin'></i></a>
+                            <a href="#" style="--socialAni:2"><i class='bx bxl-instagram'></i></a>
+                            <a href="#" style="--socialAni:3"><i class='bx bxl-github'></i></a>
+                            <a href="#" style="--socialAni:4"><i class='bx bxl-youtube'></i></a>
+                        </div>
+                        <button id="exploreButton" class="explore-btn"> Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="merchandiseSection" class="merchandise hidden">
+            <div class="container">
+                <h2>Our Collection</h2>
+                <div class="merchandise-grid">
+                    <div class="product">
+                        <img src="./imgs/jackets.jpg" alt="Product 1">
+                        <h3>Jackets</h3>
+                        <p>$49.99</p>
+                        <button>View Details</button>
+                    </div>
+                    <div class="product">
+                        <img src="./imgs/pants.jpg" alt="Product 2">
+                        <h3>Pants</h3>
+                        <p>$59.99</p>
+                        <button>View Details</button>
+                    </div>
+                    <div class="product">
+                        <img src="./imgs/shirt.jpg" alt="Product 3">
+                        <h3>shirts</h3>
+                        <p>$69.99</p>
+                        <button>View Details</button>
+                    </div>
+                    <div class="product">
+                        <img src="./imgs/shoe.jpg" alt="Product 3">
+                        <h3>shoe</h3>
+                        <p>$69.99</p>
+                        <button>View Details</button>
+                    </div>
+                    <!-- Add more product items as needed -->
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+        </div>
+    </section>
+    
+   <section id="info">
+    <div class="info-cont">
+        <div class="main-box">
+        </div>
+    </div>
+   </section>
+        
+        
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+        
+    document.getElementById("exploreButton").addEventListener("click", function() {
+        const merchandiseSection = document.getElementById("merchandiseSection");
+        merchandiseSection.classList.toggle("hidden");
+        this.textContent = merchandiseSection.classList.contains("hidden") ? "Explore" : "Hide Collection";
+    });
+
+
+    </script>
+</body>
+
+</html>
